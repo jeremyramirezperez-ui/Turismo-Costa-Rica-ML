@@ -1,15 +1,33 @@
 # Análisis y Predicción del Turismo en Costa Rica
 
-Proyecto Final **BD-143 — Programación II**
-Colegio Universitario de Cartago | II Cuatrimestre 2026
-Profesor: Osvaldo González Chaves
+![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-BD-CC2927?logo=microsoftsqlserver&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-dashboard-FF4B4B?logo=streamlit&logoColor=white)
 
-## Integrantes
+Proyecto Final **BD-143 — Programación II** · Colegio Universitario de Cartago | II Cuatrimestre 2026 · Profesor: Osvaldo González Chaves
+
+Pipeline completo de ciencia de datos: extracción automática de los PDF oficiales del ICT, enriquecimiento con datos climáticos de una API, carga en SQL Server, análisis exploratorio, comparación de modelos de regresión y dashboard interactivo con mapa mundial.
+
+## 👥 Proyecto en equipo
+
 - Jeremy Ramírez Pérez
 - Gabriel Solano Molina
 - Derek Barrantes Torres
 
 Repositorio original del equipo: [GaboSM1507/Proyecto_Final_ProgramacionII](https://github.com/GaboSM1507/Proyecto_Final_ProgramacionII).
+
+## ⚡ En resumen
+
+- **Datos:** 14 informes semestrales del ICT (2019–2025) extraídos con `pdfplumber`, validados contra el Anuario Estadístico (coinciden exactamente), más temperatura mensual de Open-Meteo.
+- **Modelo:** KNN elegido entre KNN, Regresión Lineal y Random Forest (R² = 0.65 en prueba).
+- **Dashboard:** Streamlit con 5 pestañas y mapa coroplético de 67 países con Folium.
+
+| Tendencia anual | Turistas por mes y año |
+|---|---|
+| ![Tendencia anual](src/reports/figures/tendencia_anual.png) | ![Heatmap mes y año](src/reports/figures/heatmap_mes_anio.png) |
+
+![Top 10 países emisores](src/reports/figures/top_paises.png)
 
 ## Descripción
 
@@ -99,9 +117,11 @@ Se comparan tres modelos de regresión (KNN, Regresión Lineal, Random Forest) u
 
 | Modelo | MAE | RMSE | R² |
 |---|---|---|---|
-| **KNN** (mejor modelo) | 1,105.56 | 36,107,977.67 | 0.6503 |
-| Regresión Lineal | 1,123.72 | 39,203,925.67 | 0.6203 |
-| Random Forest | 1,164.92 | 44,475,708.40 | 0.5693 |
+| **KNN** (mejor modelo) | 1,105.56 | 6,008.99 | 0.6503 |
+| Regresión Lineal | 1,123.72 | 6,261.30 | 0.6203 |
+| Random Forest | 1,164.92 | 6,669.01 | 0.5693 |
+
+> Las métricas se calculan sobre el conjunto de prueba, en número de turistas. La versión original del cálculo reportaba el MSE con el nombre de RMSE; se corrigió en `src/helpers/utilidades.py` (las salidas guardadas del notebook todavía muestran el valor anterior).
 
 ## Mapa interactivo
 

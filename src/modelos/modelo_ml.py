@@ -153,11 +153,10 @@ class ModeloML:
         self.modelos_entrenados["Random Forest"] = grid_rf.best_estimator_
 
         # ____Tabla comparativa____ #
-        # ____Tabla comparativa____ #
         df_resultados = pd.DataFrame(resultados).sort_values("MAE")
         self.mejor_modelo_nombre = df_resultados.iloc[0]["modelo"]
         self.mejor_modelo = self.modelos_entrenados[self.mejor_modelo_nombre]
-        self.resultados_benchmarking = df_resultados  # ← AGREGAS ESTA LÍNEA
+        self.resultados_benchmarking = df_resultados
 
         return df_resultados
 

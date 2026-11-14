@@ -58,7 +58,7 @@ class Utilidades:
     def calcular_metricas_regresion(y_real, y_pred) -> dict:
         #____Metricas estandar para comparar modelos____#
         mae = mean_absolute_error(y_real, y_pred)
-        rmse = mean_squared_error(y_real, y_pred)
+        rmse = float(np.sqrt(mean_squared_error(y_real, y_pred)))
         r2 = r2_score(y_real, y_pred)
         return {"MAE": round(mae, 2), "RMSE": round(rmse, 2), "R2": round(r2, 4)}
 
