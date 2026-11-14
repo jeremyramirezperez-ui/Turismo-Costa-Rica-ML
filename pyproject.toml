@@ -1,0 +1,13 @@
+[project]
+name = "proyecto-final-programacionii"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=3.0.5",
+    "pandas-stubs~=3.0.5",
+    "pdfplumber>=0.11.10",
+    "requests>=2.34.2",
+    "pyodbc>=5.3.0",
+    "joblib>=1.5.3",
+    "scikit-learn>=1.9.0",
+]
